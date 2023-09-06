@@ -20,7 +20,7 @@ export const getCategories = async (): Promise<Category[]> => {
 };
 
 export const getGames = async (): Promise<Game[]> => {
-	const query = `*[_type == "game"] {
+	const query = `*[_type == "game"] | order(_createdAt asc) {
         name,
         price,
         images,
