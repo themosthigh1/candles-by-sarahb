@@ -47,5 +47,5 @@ const newsletterSectionClasses = {
   inputField:
     "w-full md:w-3/4 py-3 px-4 text-gray-700 rounded-t-lg md:rounded-l-lg md:rounded-t-none md:rounded-r-none",
   button:
-    "bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8  transition-all duration-200 md:ml-4 mt-4 md:mt-0",
+    "bg-green-600 hover:bg-green-700 text-white py-3 px-8  transition-all duration-200 md:ml-4 mt-4 md:mt-0",
 };
