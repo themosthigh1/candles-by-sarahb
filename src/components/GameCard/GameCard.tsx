@@ -22,8 +22,8 @@ const GameCard: FC<GameCardProps> = (props) => {
         className={gameCardClassNames.image}
         src={imageUrl}
         alt={gameName}
-        width={200}
-        height={200}
+        width={400}
+        height={400}
       />
 
       <div className={gameCardClassNames.gameName}>{gameName}</div>

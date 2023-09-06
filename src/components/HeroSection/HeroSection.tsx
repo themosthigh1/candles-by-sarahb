@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Backgroud from '../../../public/images/IMG_0352.jpeg'
+import Backgroud from '../../../public/images/headerBackground.png'
 
 import heroClassNames from "./heroClassNames";
 
@@ -13,9 +13,10 @@ const HeroSection: FC<{ showLink?: boolean }> = (props) => {
     <div
     className="h-screen flex"
     style={{
-      backgroundImage: `url('/images/IMG_0352.jpeg')`, // Replace with your image source
+      backgroundImage: `url('/images/headerBackground.png')`, // Replace with your image source
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      height: '610px'
     }}
   >
     <div className="text-white container mx-auto px-10 my-auto">
