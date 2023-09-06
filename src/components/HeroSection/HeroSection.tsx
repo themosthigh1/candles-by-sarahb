@@ -23,7 +23,7 @@ const HeroSection: FC<{ showLink?: boolean }> = (props) => {
         Candles By Sarah B.
       </h1>
       <p className="text-lg sm:text-xl md:text-2xl mb-8 text-yellow-300">
-        "{heroText}"
+        {heroText}
       </p>
       <button className="bg-black flex  hover:bg-yellow-300 text-white hover:text-black py-2 px-4">
 					Products
