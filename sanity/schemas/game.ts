@@ -3,7 +3,7 @@
 export default {
   name: 'game',
   type: 'document',
-  title: 'Game',
+  title: 'Product',
   fields: [
     {
       name: 'name',
@@ -62,11 +62,11 @@ export default {
       name: 'description',
       type: 'text',
       validation: (Rule: any) => [
-        Rule.required().min(20),
+        Rule.required().min(10),
         Rule.custom((text: string) => {
           const wordCount = text.trim().split(/\s+/).length
-          if (wordCount < 20) {
-            return `Description must have a minimum of 20 words. ${wordCount}/20`
+          if (wordCount < 10) {
+            return `Description must have a minimum of 10 words. ${wordCount}/20`
           }
           return true
         }),

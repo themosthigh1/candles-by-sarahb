@@ -17,7 +17,7 @@ const GameDetailsServer: any = async (props: { slug: string }) => {
 export default GameDetailsServer;
 
 const classNames = {
-  description: "text-lg text-gray-300 mb-2",
-  name: "text-4xl pt-5 text-gray-300 font-bold mb-2",
-  price: "text-2xl text-primary font-bold",
+  description: "text-lg text-black mb-2",
+  name: "text-4xl pt-5 text-black mb-2",
+  price: "text-2xl text-blackblack",
 };

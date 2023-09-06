@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection/HeroSection";
 import GameCategoryCard from "@/components/GameCategoryCard/GameCategoryCard";
 import NewsLetter from "@/components/NewsLetter/NewsLetter";
 import { getCategories, getGames, getRecentGames } from "@/libs/apis";
+import AboutSection from "@/components/AboutSection/AboutSection";
 
 export default async function Home() {
   const categories = await getCategories();
@@ -37,7 +38,7 @@ export default async function Home() {
           ))}
         </div>
       </section>
-
+      <AboutSection />
       <NewsLetter />
     </>
   );

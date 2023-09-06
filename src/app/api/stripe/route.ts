@@ -6,9 +6,8 @@ import { createOrder, updateGameQuantity } from './../../../libs/apis';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 	apiVersion: '2022-11-15',
 });
-
-import sanityClient from '@/libs/sanity';
 import { Game, GameSubset } from '@/models/game';
+import { client } from '../../../../sanity/lib/client';
 
 export async function POST(req: Request, res: Response) {
 	const { cartItems, userEmail } = await req.json();
@@ -68,10 +67,8 @@ async function fetchAndCalculateItemPricesAndQuantity(cartItems: Game[]) {
 	try {
 		// Fetch items from sanity based on game IDS
 		const itemIds = cartItems.map(item => item._id);
-		const sanityItems: GameSubset[] = await sanityClient.fetch({
-			query,
-			params: { itemIds },
-		});
+		const sanityItems: GameSubset[] = await client.fetch(query,{params: { itemIds}},
+		);
 
 		const updatedItems: GameSubset[] = sanityItems.map(item => ({
 			...item,
