@@ -123,6 +123,6 @@ const classNames = {
   cartContainer: "flex justify-center items-center space-x-4",
   quantityInput:
     "border outline-none border-gray-300 rounded px-2 py-1 text-center w-12",
-  button: "px-4 py-2 rounded bg-blue-500 text-white",
+  button: "px-4 py-2 rounded bg-yellow text-black",
   disabledButton: "bg-gray-300 cursor-not-allowed",
 };
