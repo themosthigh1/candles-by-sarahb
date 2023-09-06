@@ -20,6 +20,8 @@ const Footer = () => {
     section3Heading,
   } = footerClassNames;
 
+  const footerText = '"The Redolence of Country Life."'
+
   return (
     <footer className={footer}>
       <div className={container}>
@@ -27,7 +29,7 @@ const Footer = () => {
           <div className={section1}>
             <h2 className={section1Heading}>Candles By Sarah B.</h2>
             <p className={section1Content}>
-                The Redolence of Country Life.
+                {footerText}
             </p>
           </div>
           <div className={section2}>
