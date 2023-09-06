@@ -5,7 +5,7 @@ import Backgroud from '../../../public/images/IMG_0352.jpeg'
 
 import heroClassNames from "./heroClassNames";
 
-const heroText = "The Redolence of Country Life."
+const heroText = '"The Redolence of Country Life."'
 const HeroSection: FC<{ showLink?: boolean }> = (props) => {
   const { showLink } = props;
 
