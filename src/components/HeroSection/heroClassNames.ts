@@ -8,7 +8,7 @@ const heroClassNames = {
   paragraph:
     "mt-3 font-medium text-base md:text-lg text-gray-300 sm:mt-5 sm:max-w-md md:mt-5 md:max-w-xl lg:mx-0",
   button:
-    "mt-8 sm:mt-10 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-[40px] shadow-sm text-white bg-primary hover:bg-primary-dark sm:px-8",
+    "mt-8 sm:mt-10 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-[40px] shadow-sm text-white bg-primary hover:bg-yellow-300 sm:px-8",
   buttonSpan: "ml-4",
   imageContainer:
     "hidden lg:block lg:col-start-2 lg:col-end-3 flex justify-center", // hide the image on smaller screens

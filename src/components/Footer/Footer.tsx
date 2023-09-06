@@ -25,10 +25,9 @@ const Footer = () => {
       <div className={container}>
         <div className={section}>
           <div className={section1}>
-            <h2 className={section1Heading}>LOGO</h2>
+            <h2 className={section1Heading}>Candles By Sarah B.</h2>
             <p className={section1Content}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+                "The Redolence of Country Life."
             </p>
           </div>
           <div className={section2}>
@@ -49,8 +48,7 @@ const Footer = () => {
           <div className={section3}>
             <h2 className={section3Heading}>Contact us</h2>
             <p className={section3Content}>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+
             </p>
           </div>
         </div>

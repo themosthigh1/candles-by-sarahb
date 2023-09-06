@@ -5,13 +5,13 @@ const footerClassNames = {
   sectionLink: "hover:text-gray-400",
   section1: "",
   section1Heading: "font-bold text-lg mb-4",
-  section1Content: "text-sm",
+  section1Content: "text-sm text-yellow-300",
   section2: "",
   section2Heading: "font-bold text-lg mb-4",
   section2Content: "text-gray-400",
   section2ul: "text-sm",
   section3: "",
-  section3Heading: "font-bold text-lg mb-4",
+  section3Heading: " text-lg mb-4",
   section3Content: "text-sm",
 };
 
