@@ -27,7 +27,7 @@ const Footer = () => {
           <div className={section1}>
             <h2 className={section1Heading}>Candles By Sarah B.</h2>
             <p className={section1Content}>
-                "The Redolence of Country Life."
+                The Redolence of Country Life.
             </p>
           </div>
           <div className={section2}>
