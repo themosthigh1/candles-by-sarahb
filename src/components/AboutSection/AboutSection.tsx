@@ -1,5 +1,5 @@
 
-import aboutSectionClassNames from './AboutSectionClassNames'
+import aboutSectionClassNames from './aboutSectionClassNames'
 
 const AboutSection = () => {
   return (

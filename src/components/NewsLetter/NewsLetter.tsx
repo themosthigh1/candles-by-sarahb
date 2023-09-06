@@ -34,11 +34,11 @@ const NewsLetter = () => {
 export default NewsLetter;
 
 const newsletterSectionClasses = {
-  container: "px-4 py-[150px] md:px-36 text-black",
+  container: "px-4 py-[80px] md:px-36 text-black",
   heading: "text-2xl md:text-4xl mb-3 md:mb-5",
   subHeading: "text-base md:text-lg mb-6 md:mb-10",
   cardContainer:
-    "py-8 px-6 md:py-10 md:px-14 bg-black mx-auto flex flex-col md:flex-row justify-between items-center",
+    "py-8 px-6 md:py-10 md:px-14 bg-black bg-opacity-75 mx-auto flex flex-col md:flex-row justify-between items-center",
   cardLeft: "flex-1 md:mr-8 mb-6 md:mb-0",
   cardHeading: "text-lg md:text-2xl mb-2 text-white",
   cardSubHeading: "text-sm md:text-base text-gray-300 mb-4",
