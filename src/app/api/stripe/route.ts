@@ -11,7 +11,7 @@ import { createOrder, updateGameQuantity } from '@/libs/apis';
 
 export async function POST(req: Request, res: Response) {
 	const { cartItems, userEmail } = await req.json();
-	const origin = req.headers.get('origin');
+	const origin = req.headers.get('https://candlesbysarahb.com');
 
 	const updatedItems: GameSubset[] =
 		(await fetchAndCalculateItemPricesAndQuantity(cartItems)) as GameSubset[];
@@ -37,7 +37,7 @@ export async function POST(req: Request, res: Response) {
 			payment_method_types: ['card'],
 			billing_address_collection: 'required',
 			mode: 'payment',
-			success_url: 'https://candlesbysarahb.com/?success=true',
+			success_url: `${origin}/?success=true`,
 			phone_number_collection: { enabled: true },
 		});
 
