@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/libs/apisold.ts"  ],
   "exclude": [
     "node_modules"
   ]

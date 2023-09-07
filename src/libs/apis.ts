@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Category } from '@/models/category';
 import sanityClient from './sanity';
 import { Game, GameSubset } from '@/models/game';
-import { client } from '../../sanity/lib/client';
 
 export const getCategories = async (): Promise<Category[]> => {
 	const query = `*[_type == "category"] {
@@ -14,13 +13,13 @@ export const getCategories = async (): Promise<Category[]> => {
         subtitle
     }`;
 
-	const categories: Category[] = await client.fetch(query );
+	const categories: Category[] = await sanityClient.fetch({ query });
 
 	return categories;
 };
 
 export const getGames = async (): Promise<Game[]> => {
-	const query = `*[_type == "game"] | order(_createdAt asc) {
+	const query = `*[_type == "game"] {
         name,
         price,
         images,
@@ -37,7 +36,7 @@ export const getGames = async (): Promise<Game[]> => {
         description
       }`;
 
-	const games: Game[] = await client.fetch(query);
+	const games: Game[] = await sanityClient.fetch({ query });
 
 	return games;
 };
@@ -58,7 +57,7 @@ export const getCategoryGames = async (slug: string): Promise<Game[]> => {
     }
   }`;
 
-	const games: Game[] = await client.fetch(query );
+	const games: Game[] = await sanityClient.fetch({ query });
 
 	return games;
 };
@@ -66,7 +65,7 @@ export const getCategoryGames = async (slug: string): Promise<Game[]> => {
 export const getCategory = async (slug: string): Promise<Category> => {
 	const query = `*[_type == "category" && slug.current == "${slug}"][0]`;
 
-	const category: Category = await client.fetch(query );
+	const category: Category = await sanityClient.fetch({ query });
 
 	return category;
 };
@@ -89,7 +88,7 @@ export const getRecentGames = async (): Promise<Game[]> => {
         description
       }`;
 
-	const games: Game[] = await client.fetch(query );
+	const games: Game[] = await sanityClient.fetch({ query });
 
 	return games;
 };
@@ -113,7 +112,7 @@ export const getGame = async (slug: string): Promise<Game> => {
         description
   }`;
 
-	const game: Game = await client.fetch(query );
+	const game: Game = await sanityClient.fetch({ query });
 
 	return game;
 };
@@ -193,7 +192,7 @@ export async function fetchOrder(userEmail: string) {
   }`;
 
 	const params = { userEmail };
-	const result: any = await client.fetch(query, params);
+	const result: any = await sanityClient.fetch({ query, params });
 
 	return result;
 }
