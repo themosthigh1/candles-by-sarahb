@@ -24,8 +24,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-	title: 'Nextjs Ecommerce',
-	description: 'This is a shop where we sell online games',
+	title: 'Candles By Sarah B.',
+	description: '"The Redolence of Country Life."',
 };
 
 export default function RootLayout({
