@@ -1,5 +1,7 @@
 import Stripe from 'stripe';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+
+import { createOrder, updateGameQuantity } from './../../../libs/apis';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 	apiVersion: '2022-11-15',
@@ -7,7 +9,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 import sanityClient from '@/libs/sanity';
 import { Game, GameSubset } from '@/models/game';
-import { createOrder, updateGameQuantity } from '@/libs/apis';
 
 export async function POST(req: Request, res: Response) {
 	const { cartItems, userEmail } = await req.json();
@@ -77,7 +78,29 @@ async function fetchAndCalculateItemPricesAndQuantity(cartItems: Game[]) {
 			maxQuantity: item.quantity,
 		}));
 
-		return updatedItems;
+		// Check the quantity
+		if (checkQuantitiesAgainstSanity(cartItems, updatedItems)) {
+			return new NextResponse(
+				'Quantiy has been updated, please update your cart',
+				{ status: 500 }
+			);
+		}
+
+		// calculate prices
+		const calculatedItemPrices: GameSubset[] = updatedItems.map(item => {
+			const cartItem = cartItems.find(cartItem => cartItem._id === item._id);
+
+			return {
+				_id: item._id,
+				name: item.name,
+				images: item.images,
+				quantity: cartItem?.quantity as number,
+				maxQuantity: item.quantity,
+				price: item.price,
+			};
+		});
+
+		return calculatedItemPrices;
 	} catch (error) {
 		return new NextResponse(
 			'Quantiy has been updated, please update your cart',
