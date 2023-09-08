@@ -9,25 +9,31 @@ interface GameCardProps {
   imageUrl: string;
   slug: string;
   price: number;
+  buyLink: string
 }
 
 const GameCard: FC<GameCardProps> = (props) => {
-  const { gameName, imageUrl, slug, price } = props;
-
+  const { gameName, imageUrl, slug, price, buyLink } = props;
+  console.log(props)
   return (
-    <Link href={`/games/${slug}`} className={gameCardClassNames.container}>
-      <h3 className={gameCardClassNames.price}>{price} $</h3>
+    <div className={gameCardClassNames.container}>
+      <Link href={`/games/${slug}`}>
+        <h3 className={gameCardClassNames.price}>{price} $</h3>
 
-      <Image
-        className={gameCardClassNames.image}
-        src={imageUrl}
-        alt={gameName}
-        width={400}
-        height={400}
-      />
-
-      <div className={gameCardClassNames.gameName}>{gameName}</div>
-    </Link>
+        <Image
+          className={gameCardClassNames.image}
+          src={imageUrl}
+          alt={gameName}
+          width={400}
+          height={400}
+        />
+      </Link>
+      <div className={gameCardClassNames.gameName}>{gameName}
+      <Link href={buyLink}>
+        <button className={gameCardClassNames.buyButton}>Buy</button>
+      </Link>
+      </div>
+    </div>
   );
 };
 

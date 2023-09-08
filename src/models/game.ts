@@ -12,6 +12,8 @@ export interface Game {
 	slug: { current: string };
 	quantity: number;
 	description: string;
+	buyLink: string
+
 }
 
 export type GameSubset = Pick<

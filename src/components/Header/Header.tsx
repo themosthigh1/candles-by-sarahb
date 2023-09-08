@@ -65,21 +65,10 @@ const Header = () => {
 
 					<nav className={nav}>
 						<ul className={ul}>
-							<li>
-								<button onClick={() => dispatch(toggleCart())} className={link}>
-									<span>
-										<AiOutlineShoppingCart className='inline-block text-3xl' />
-									</span>
-									<div className={cart}>{totalQuantity}</div>
-								</button>
-							</li>
 
 							<li className='flex items-center justify-center h-7'>
 								{session?.user && (
 									<>
-										<Link href='/orders' className={orders}>
-											Orders
-										</Link>
 										<button onClick={() => signOut()} className={logoutBtn}>
 											Logout
 										</button>

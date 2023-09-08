@@ -33,7 +33,8 @@ export const getGames = async (): Promise<Game[]> => {
         },
         slug,
         quantity,
-        description
+        description,
+        buyLink
       }`;
 
 	const games: Game[] = await sanityClient.fetch({ query });
@@ -109,7 +110,8 @@ export const getGame = async (slug: string): Promise<Game> => {
         },
         slug,
         quantity,
-        description
+        description,
+        buyLink
   }`;
 
 	const game: Game = await sanityClient.fetch({ query });

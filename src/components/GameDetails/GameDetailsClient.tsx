@@ -57,44 +57,6 @@ const GameDetailsClient = (props: {
 
       <div className={classNames.container}>
         <div className={classNames.productInfo}>
-          <div className={classNames.cartContainer}>
-            <button
-              onClick={handleDecrease}
-              className={`${classNames.button} ${
-                quantity === 0 && classNames.disabledButton
-              }`}
-              disabled={quantity === 0}
-            >
-              -
-            </button>
-            <input
-              type="text"
-              className={classNames.quantityInput}
-              value={quantity}
-              readOnly
-            />
-            {gameDetails && (
-              <button
-                onClick={handleIncrease}
-                className={`${classNames.button} ${
-                  quantity === gameDetails.quantity && classNames.disabledButton
-                }`}
-                disabled={quantity === gameDetails.quantity}
-              >
-                +
-              </button>
-            )}
-            <div className={classNames.cartPrice}>$ {price}</div>
-            <button
-              onClick={handleAddToCart}
-              className={`${classNames.button} ${
-                quantity === 0 && classNames.disabledButton
-              }`}
-              disabled={quantity === 0}
-            >
-              <FaShoppingCart />
-            </button>
-          </div>
 
           {/* Render Game Details Server */}
           {children}

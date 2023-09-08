@@ -48,6 +48,11 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'buyLink',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'category',
       type: 'reference',
       to: [{type: 'category'}],
