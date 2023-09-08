@@ -9,6 +9,7 @@ import { removeItemFromCart, toggleCart } from '@/redux/features/cartSlice';
 import Image from 'next/image';
 import useCartTotals from '@/hooks/useCartTotals';
 import { getStripe } from '@/libs/loadStripe';
+import Link from 'next/link';
 
 const Cart: FC = () => {
 	const { showCart, cartItems } = useAppSelector(state => state.cart);
@@ -26,7 +27,7 @@ const Cart: FC = () => {
 	const checkoutHandler = async () => {
 		const stripe = await getStripe();
 
-		const { data } = await axios.post('https://candlesbysarahb.com/api/stripe', {
+		const { data } = await axios.post('/api/stripe/', {
 			cartItems,
 			userEmail: session?.user?.email,
 		});
@@ -99,9 +100,11 @@ const Cart: FC = () => {
 				<span className={classNames.subtotalText}>Subtotal</span>
 				<span className={classNames.subtotalPrice}>$ {totalPrice}</span>
 			</div>
-			<button onClick={checkoutHandler} className={classNames.checkoutBtn}>
-				Checkout
-			</button>
+			<Link href='https://buy.stripe.com/6oE8xah0w1iD57WaEF'>
+				<button onClick={checkoutHandler} className={classNames.checkoutBtn}>
+					Checkout
+				</button>
+			</Link>
 		</div>
 	);
 };
