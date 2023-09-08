@@ -72,7 +72,7 @@ export default CarouselSlider;
 const classNames = {
   container: "relative h-[70vh]",
   previousButton:
-    "absolute flex h-14 w-14 top-1/2 left-2 transform -translate-y-1/2 px-4 py-2 bg-yellow-300 text-black rounded-full",
+    "absolute flex h-14 w-14 top-1/2 left-2 transform -translate-y-1/2 px-4 py-2 bg-black text-yellow-300 rounded-full",
   nextButton:
-    "absolute flex h-14 w-14 top-1/2 right-2 transform -translate-y-1/2 px-4 py-2 bg-yellow-300 text-black rounded-full",
+    "absolute flex h-14 w-14 top-1/2 right-2 transform -translate-y-1/2 px-4 py-2 bg-black text-yellow-300 rounded-full",
 };

@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 	apiVersion: '2022-11-15',
@@ -9,9 +9,9 @@ import sanityClient from '@/libs/sanity';
 import { Game, GameSubset } from '@/models/game';
 import { createOrder, updateGameQuantity } from '@/libs/apis';
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: NextRequest, res: NextResponse) {
 	const { cartItems, userEmail } = await req.json();
-	const origin = req.headers.get('https://candlesbysarahb.com');
+	const origin = req.headers.get('origin');
 
 	const updatedItems: GameSubset[] =
 		(await fetchAndCalculateItemPricesAndQuantity(cartItems)) as GameSubset[];

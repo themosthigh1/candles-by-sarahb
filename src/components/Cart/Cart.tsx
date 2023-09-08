@@ -3,7 +3,6 @@
 import { FC, useEffect, useState } from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import axios from 'axios';
-
 import { useAppDispatch, useAppSelector } from '@/hooks/storeHook';
 import { useSession } from 'next-auth/react';
 import { removeItemFromCart, toggleCart } from '@/redux/features/cartSlice';
@@ -26,7 +25,6 @@ const Cart: FC = () => {
 
 	const checkoutHandler = async () => {
 		const stripe = await getStripe();
-
 		const { data } = await axios.post('/api/stripe', {
 			cartItems,
 			userEmail: session?.user?.email,
