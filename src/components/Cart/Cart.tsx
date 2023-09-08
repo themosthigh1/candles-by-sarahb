@@ -26,7 +26,7 @@ const Cart: FC = () => {
 	const checkoutHandler = async () => {
 		const stripe = await getStripe();
 
-		const { data } = await axios.post('https://candlesbysarahb.com/api/stripe/', {
+		const { data } = await axios.post('https://candlesbysarahb.com/api/stripe/sessions', {
 			cartItems,
 			userEmail: session?.user?.email,
 		});
