@@ -12,7 +12,7 @@ import { Game, GameSubset } from '@/models/game';
 
 export async function POST(req: Request, res: Response) {
 	const { cartItems, userEmail } = await req.json();
-	const origin = req.headers.get('https://www.candlesbysarahb.com');
+	const origin = req.headers.get('origin');
 
 	const updatedItems: GameSubset[] =
 		(await fetchAndCalculateItemPricesAndQuantity(cartItems)) as GameSubset[];
