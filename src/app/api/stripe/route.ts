@@ -9,7 +9,7 @@ import sanityClient from '@/libs/sanity';
 import { Game, GameSubset } from '@/models/game';
 import { createOrder, updateGameQuantity } from '@/libs/apis';
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: Request, res: Response) {
 	const { cartItems, userEmail } = await req.json();
 	const origin = req.headers.get('origin');
 

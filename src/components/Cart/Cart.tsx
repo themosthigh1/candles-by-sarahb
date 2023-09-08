@@ -25,6 +25,7 @@ const Cart: FC = () => {
 
 	const checkoutHandler = async () => {
 		const stripe = await getStripe();
+
 		const { data } = await axios.post('/api/stripe', {
 			cartItems,
 			userEmail: session?.user?.email,
