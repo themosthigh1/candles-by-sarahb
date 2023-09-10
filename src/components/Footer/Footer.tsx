@@ -2,6 +2,16 @@ import Link from "next/link";
 
 import footerClassNames from "./footerClassNames";
 
+const footerText = '"The Redolence of Country Life."'
+
+const footerLinks = [
+  {name: 'Shipping', link: '/shipping'},
+  {name: 'Returns and Exchanges', link: '/returns-and-exchanges'},
+  {name: 'FAQ', link: 'faq'},
+  {name: 'Privacy Policy', link: '/privacy-policy'},
+  {name: 'Refund Policy', link: '/refund-policy'},
+]
+
 const Footer = () => {
   const {
     container,
@@ -20,8 +30,6 @@ const Footer = () => {
     section3Heading,
   } = footerClassNames;
 
-  const footerText = '"The Redolence of Country Life."'
-
   return (
     <footer className={footer}>
       <div className={container}>
@@ -29,29 +37,28 @@ const Footer = () => {
           <div className={section1}>
             <h2 className={section1Heading}>Candles By Sarah B.</h2>
             <p className={section1Content}>
-                {footerText}
+             {footerText}
             </p>
           </div>
           <div className={section2}>
-            <h2 className={section2Heading}>About us</h2>
+            <h2 className={section2Heading}>
+              <Link href={'/about'}>About us</Link></h2>
             <ul className={section2ul}>
-              <li>
-                <Link href="#" className={sectionLink}>
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className={sectionLink}>
-                  Blog
-                </Link>
-              </li>
+              {footerLinks.map((footerLink, i) => (
+                i < 3 ? (
+                  <li key={i}><Link href={footerLink.link}>{footerLink.name}</Link></li>):("")
+              ))}
             </ul>
           </div>
           <div className={section3}>
-            <h2 className={section3Heading}>Contact us</h2>
-            <p className={section3Content}>
-
-            </p>
+            <h2 className={section3Heading}>
+              <Link href={'/contact'}>Contact us</Link></h2>
+              <ul className={section2ul}>
+                {footerLinks.map((footerLink, i) => (
+                  i > 2 ? (
+                    <li key={i}><Link href={footerLink.link}>{footerLink.name}</Link></li>):("")
+                ))}
+              </ul>
           </div>
         </div>
       </div>

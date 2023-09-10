@@ -114,7 +114,7 @@ export const getGame = async (slug: string): Promise<Game> => {
         buyLink
   }`;
 
-	const game: Game = await sanityClient.fetch({ query });
+	const game: Game = await sanityClient.fetch({ query } );
 
 	return game;
 };
