@@ -14,7 +14,6 @@ interface GameCardProps {
 
 const GameCard: FC<GameCardProps> = (props) => {
   const { gameName, imageUrl, slug, price, buyLink } = props;
-  console.log(props)
   return (
     <div className={gameCardClassNames.container}>
       <Link href={`/products/${slug}`}>
