@@ -24,6 +24,6 @@ export default GameDetailsServer;
 
 const classNames = {
   description: "text-lg text-black mb-2",
-  name: "text-4xl pt-5 text-black mb-2",
+  name: "text-4xl text-black mb-2",
   price: "text-2xl text-blackblack my-5",
 };

@@ -30,27 +30,6 @@ const GameDetailsClient = (props: {
     fetchGameDetails();
   }, [slug]);
 
-  const handleDecrease = () => {
-    if (!gameDetails) return;
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-      setPrice(Number(((quantity - 1) * gameDetails.price).toFixed(2)));
-    }
-  };
-
-  const handleIncrease = () => {
-    if (!gameDetails) return;
-    if (quantity < gameDetails.quantity) {
-      setQuantity(quantity + 1);
-      setPrice(Number(((quantity + 1) * gameDetails.price).toFixed(2)));
-    }
-  };
-
-  const handleAddToCart = () => {
-    if (!gameDetails) return;
-    dispatch(addItemToCart({ ...gameDetails, quantity }));
-  };
-
   return (
     <div>
       {gameDetails && <CarouselSlider images={gameDetails.images} />}
@@ -70,8 +49,8 @@ export default GameDetailsClient;
 
 const classNames = {
   container:
-    "py-10 max-w-xs md:max-w-3xl mx-auto flex flex-col items-center justify-center",
-  carousel: "relative w-full h-64 mb-4",
+    "py-5 max-w-xs md:max-w-3xl mx-auto flex flex-col items-center justify-center",
+  carousel: "relative w-full h-64",
   previousButton:
     "absolute top-1/2 left-2 transform -translate-y-1/2 px-4 py-2 bg-gray-500 text-white rounded-l",
   nextButton:

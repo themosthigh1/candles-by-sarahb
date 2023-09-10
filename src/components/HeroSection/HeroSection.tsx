@@ -27,7 +27,7 @@ const HeroSection: FC<{ showLink?: boolean }> = (props) => {
         {heroText}
       </p>
       <button className="bg-black flex  hover:bg-yellow-300 text-white hover:text-black py-2 px-4">
-					Products
+      <Link href={`/products`}>Products</Link>
 			</button>
 
     </div>
