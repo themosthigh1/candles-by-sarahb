@@ -10,11 +10,10 @@ interface GameCardProps {
   slug: string;
   price: number;
   buyLink: string;
-  weightPerVessel: string
 }
 
 const GameCard: FC<GameCardProps> = (props) => {
-  const { gameName, imageUrl, slug, price, buyLink, weightPerVessel } = props;
+  const { gameName, imageUrl, slug, price, buyLink } = props;
   return (
     <div className={gameCardClassNames.container}>
       <Link href={`/products/${slug}`}>
@@ -28,7 +27,7 @@ const GameCard: FC<GameCardProps> = (props) => {
           height={400}
         />
       </Link>
-      <div className={gameCardClassNames.gameName}>{gameName} {weightPerVessel}
+      <div className={gameCardClassNames.gameName}>{gameName}
       <Link href={buyLink}>
         <button className={gameCardClassNames.buyButton}>Buy</button>
       </Link>

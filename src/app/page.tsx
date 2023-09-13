@@ -34,8 +34,7 @@ export default async function Home() {
               imageUrl={game.images[0].url}
               slug={game.slug.current}
               price={game.price}
-              buyLink={game.buyLink}
-              weightPerVessel={game.dimension.weightPerVessel}
+              buyLink={game.buyLink} 
             />
           ))}
         </div>

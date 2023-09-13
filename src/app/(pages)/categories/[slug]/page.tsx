@@ -36,7 +36,6 @@ const GameCategory = async (props: { params: { slug: string } }) => {
               price={game.price}
               slug={game.slug.current} 
               buyLink={game.buyLink}
-              weightPerVessel={game.dimension.weightPerVessel}
             />
           ))}
         </div>
