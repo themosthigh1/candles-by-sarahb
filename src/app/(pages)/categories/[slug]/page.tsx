@@ -35,7 +35,9 @@ const GameCategory = async (props: { params: { slug: string } }) => {
               imageUrl={game.images[0].url}
               price={game.price}
               slug={game.slug.current} 
-              buyLink={game.buyLink}            />
+              buyLink={game.buyLink}
+              weightPerVessel={game.dimension.weightPerVessel}
+            />
           ))}
         </div>
       </section>
