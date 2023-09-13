@@ -31,6 +31,7 @@ export const getGames = async (): Promise<Game[]> => {
             current
           }
         },
+        'dimension': *[_id == ^.dimension._ref][0] {...},
         slug,
         quantity,
         description,
@@ -108,6 +109,7 @@ export const getGame = async (slug: string): Promise<Game> => {
             current
           }
         },
+        'dimension': *[_id == ^.dimension._ref][0] {...},
         slug,
         quantity,
         description,
