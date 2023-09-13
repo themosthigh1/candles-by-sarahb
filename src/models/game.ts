@@ -9,7 +9,7 @@ export interface Game {
 	isFeatured: boolean;
 	isTrending: boolean;
 	category: { name: string; slug: { current: string } };
-	dimension: { name: string; slug: { current: string }; weightPerVessel: string };
+	dimension: { weightPerVessel: string };
 	slug: { current: string };
 	quantity: number;
 	description: string;
