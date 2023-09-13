@@ -25,6 +25,7 @@ const Games = async (props: {}) => {
               price={game.price}
               slug={game.slug.current}
               buyLink={game.buyLink}
+              weightPerVessel={game.dimension.weightPerVessel}
             />
           ))}
         </div>
