@@ -1,5 +1,6 @@
 import { getGame } from "@/libs/apis";
 import Link from "next/link";
+import GameCategoryCard from "../GameCategoryCard/GameCategoryCard";
 
 const GameDetailsServer: any = async (props: { slug: string }) => {
   const { slug } = props;

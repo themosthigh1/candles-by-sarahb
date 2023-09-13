@@ -16,7 +16,7 @@ const GameCategoryCard: FC<GameCategoryCardProps> = (props) => {
   const { image, name, container, arrow } = gameCategoryCardClassNames;
 
   return (
-    <Link href={`categories/${slug}`} className={container}>
+    <Link href={`collections/${slug}`} className={container}>
       <Image
         src={categoryImage}
         alt={categoryName}

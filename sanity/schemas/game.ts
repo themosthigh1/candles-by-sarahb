@@ -59,6 +59,12 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'dimension',
+      type: 'reference',
+      to: [{type: 'dimension'}],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'quantity',
       type: 'number',
       validation: (Rule: any) => Rule.required().integer().min(0),

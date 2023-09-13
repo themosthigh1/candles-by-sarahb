@@ -11,11 +11,11 @@ const headerClassNames = {
   contactUs: "px-6 py-2 rounded-md bg-primary hover:bg-primary-dark",
   orders: "px-6 py-2 bg-yellow-300 hover:bg-primary-dark text-black",
   signupBtn:
-    "bg-yellow-300 mr-4 hover:bg-yellow-700 text-black py-2 px-4",
+    "bg-yellow-300 mr-4 hover:bg-yellow-700 text-black py-1 px-2",
   signinBtn:
-    "bg-black flex hover:bg-gray-700 text-white py-2 px-4",
+    "bg-black flex hover:bg-gray-700 text-white py-1 px-2",
   logoutBtn:
-    "bg-black ml-4 flex hover:bg-gray-700 text-white py-2 px-4",
+    "bg-black ml-4 flex hover:bg-gray-700 text-white py-2 px-2",
 };
 
 export default headerClassNames;

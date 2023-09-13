@@ -31,13 +31,19 @@ export const getGames = async (): Promise<Game[]> => {
             current
           }
         },
+        'dimension': *[_id == ^.dimension._ref][0] {
+          name,
+          slug {
+            current
+          }
+        },
         slug,
         quantity,
         description,
         buyLink
       }`;
 
-	const games: Game[] = await sanityClient.fetch({ query });
+	const games: Game[] = await sanityClient.fetch( {query} )
 
 	return games;
 };
