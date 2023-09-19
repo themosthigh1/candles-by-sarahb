@@ -20,7 +20,7 @@ const ProductReviews = () => {
     <section className={reviewClassNames.reviewSection}>
         {blockquoteText.map((blocktext, i ) => (
           i < 1 ? (
-            <div key={i}>
+            <div key={i} className={reviewClassNames.sectionContainer}>
               <blockquote className={reviewClassNames.reviewText}>
                 {blocktext.text}
               </blockquote>
