@@ -20,8 +20,8 @@ const ProductReviews = () => {
     <section className={reviewClassNames.reviewSection}>
         {blockquoteText.map((blocktext, i ) => (
           i < 1 ? (
-            <div>
-              <blockquote key={i} className={reviewClassNames.reviewText}>
+            <div key={i}>
+              <blockquote className={reviewClassNames.reviewText}>
                 {blocktext.text}
               </blockquote>
               <h3 className="flex justify-end font-semibold mt-2">
