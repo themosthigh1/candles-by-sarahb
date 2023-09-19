@@ -38,7 +38,7 @@ export default ProductReviews
 const reviewClassNames = {
   reviewSection: 'flex justify-center mx-auto py-6 text-black bg-yellow-300',
   sectionContainer: 'container, py-6 px-6',
-  reviewText: 'text-2xl text-gray-900',
+  reviewText: 'text-2xl text-gray-900  mx-auto',
 
 }
   
