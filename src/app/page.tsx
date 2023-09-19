@@ -7,6 +7,7 @@ import GameCategoryCard from "@/components/GameCategoryCard/GameCategoryCard";
 import NewsLetter from "@/components/NewsLetter/NewsLetter";
 import { getCategories, getGames, getRecentGames } from "@/libs/apis";
 import AboutSection from "@/components/AboutSection/AboutSection";
+import ProductReviews from "@/components/ProductReviews/ProductReviews";
 
 export default async function Home() {
   const categories = await getCategories();
@@ -18,7 +19,7 @@ export default async function Home() {
   return (
     <>
       <HeroSection showLink />
-
+      <ProductReviews />
       <section className={sectionClassNames.section}>
         <div className={sectionClassNames.trending}>
           <h2 className={sectionClassNames.trendingTitle}>
