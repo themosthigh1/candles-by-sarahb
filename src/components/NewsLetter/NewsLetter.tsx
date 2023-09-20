@@ -5,6 +5,16 @@ import { client } from "../../../sanity/lib/client";
 
 const NewsLetter = () => {
   const [email, setEmail] = useState(""); // State to hold the email input value
+  const [formData, setFormData] = useState(
+    <div className={newsletterSectionClasses.cardLeft}>
+      <h3 className={newsletterSectionClasses.cardHeading}>
+        Sign Up for Our Newsletter
+      </h3>
+      <p className={newsletterSectionClasses.cardSubHeading}>
+        Get the latest news and updates delivered straight to your inbox.
+      </p>
+    </div>
+  ); // State to hold the email input value
 
   const handleEmailChange = (e: { target: { value: SetStateAction<string>; }; }) => {
     setEmail(e.target.value); // Update the email state as the user types
@@ -23,8 +33,16 @@ const NewsLetter = () => {
 
       // Handle a successful submission
       console.log("Form data sent to Sanity:", response);
-      // You can also show a success message to the user here
-
+      setFormData(
+        <div className={newsletterSectionClasses.cardLeft}>
+          <h3 className={newsletterSectionClasses.cardHeading}>
+            Thanks for Signing Up!
+          </h3>
+          <p className={newsletterSectionClasses.cardSubHeading}>
+           Stay tuned for our latest news and updates delivered straight to your inbox.
+          </p>
+        </div>
+      )
       // Clear the email input
       setEmail("");
     } catch (error) {
@@ -41,14 +59,7 @@ const NewsLetter = () => {
         Tips.
       </p>
       <div className={newsletterSectionClasses.cardContainer}>
-      <div className={newsletterSectionClasses.cardLeft}>
-          <h3 className={newsletterSectionClasses.cardHeading}>
-            Sign Up for Our Newsletter
-          </h3>
-          <p className={newsletterSectionClasses.cardSubHeading}>
-            Get the latest news and updates delivered straight to your inbox.
-          </p>
-        </div>
+        {formData}
         <form className={newsletterSectionClasses.formContainer} onSubmit={handleSubmit}>
           <input
             name="email"
