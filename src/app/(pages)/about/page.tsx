@@ -22,6 +22,6 @@ export default page
 
 const pageClassNames = {
   pageSection: 'text-white',
-  div1: 'bg-red-500 p-6',
+  div1: 'bg-red-500 p-6 m-2',
   div2: 'bg-blue-500 p-6',
 }
