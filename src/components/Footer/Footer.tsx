@@ -35,7 +35,9 @@ const Footer = () => {
       <div className={container}>
         <div className={section}>
           <div className={section1}>
-            <h2 className={section1Heading}>Candles By Sarah B.</h2>
+            <h2 className={section1Heading}>
+              <Link href={"/studio"}>Candles By Sarah B.</Link>
+            </h2>
             <p className={section1Content}>
              {footerText}
             </p>

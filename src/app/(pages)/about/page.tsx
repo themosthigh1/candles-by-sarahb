@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className=''>
       <PageTitle title={'About'}/>
       <div className={pageClassNames.pageSection}>
         <div className={pageClassNames.div1}>
@@ -21,7 +21,7 @@ const page = () => {
 export default page
 
 const pageClassNames = {
-  pageSection: 'text-white',
-  div1: 'bg-red-500 p-6 m-2',
-  div2: 'bg-blue-500 p-6',
+  pageSection: 'text-white flex-col max-w-sm',
+  div1: 'bg-red-500 p-6 w-1/3 h-32',
+  div2: 'bg-blue-500 p-6 w-2/3',
 }
