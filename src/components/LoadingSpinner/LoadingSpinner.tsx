@@ -7,10 +7,14 @@ import { RiseLoader } from "react-spinners"
 const LoadingSpinner = () => {
   return (
     <section className={loadingSpinnerClasses.section}>
-        <RiseLoader 
-            color="#fde047"
-            loading
-        />
+      <div className="m-auto">
+        <div className="text-center">
+          <RiseLoader 
+              color="#fde047"
+              loading
+          />
+        </div>
+      </div>
     </section>
   )
 }
@@ -18,6 +22,7 @@ const LoadingSpinner = () => {
 export default LoadingSpinner
 
 const loadingSpinnerClasses = {
-  section: 'container, bg-black'
+  section: 'flex h-1/2',
+
 }
 

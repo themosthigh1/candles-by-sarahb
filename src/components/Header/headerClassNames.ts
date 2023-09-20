@@ -1,5 +1,5 @@
 const headerClassNames = {
-  header: "fixed w-full top-0 left-0 z-20 bg-black bg-opacity-75 text-white",
+  header: "fixed w-full top-0 left-0 z-20 bg-black bg-opacity-75 text-white h-200",
   container: "container mx-auto py-4 px-6 flex items-center justify-between",
   logoContainer: "flex items-center",
   logo: "text-xl hover:text-primary-light",

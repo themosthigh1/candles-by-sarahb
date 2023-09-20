@@ -23,7 +23,7 @@ export default PageTitle
 
 const sectionClassNames = {
     section: "px-6 sm:px-12 md:px-20 lg:px-36 mx-auto py-8 text-black mt-20",
-    trending: "flex flex-col sm:flex-row items-center justify-between mb-8",
+    trending: "flex flex-col sm:flex-row items-center justify-between",
     trendingTitle: "text-2xl md:text-4xl mb-3 md:mb-5",
   };
 
