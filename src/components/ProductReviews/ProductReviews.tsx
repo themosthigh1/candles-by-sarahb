@@ -48,11 +48,11 @@ const ProductReviews:FC<ProductReviewsSliderProps> = (props) => {
     },
    {text: 
       '“I loved the free sample I got and ordered one of each scent. Four words: I Love Them All!”',
-    person: ''
+    person: '-Glenda H.'
    },
    {text: 
       '“Will definitely be buying frequently from them.”',
-    person: ''
+    person: '-Sherry M'
    },
   ]
   return (

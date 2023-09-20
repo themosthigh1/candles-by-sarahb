@@ -1,48 +1,35 @@
 'use client'
 
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { client } from "../../../sanity/lib/client";
 
 const NewsLetter = () => {
+  const [email, setEmail] = useState(""); // State to hold the email input value
 
-  interface Contact {
-    email: string;
-  }
-
-  const [contact, setContact] = useState<Contact>({
-    email: ''
-  });
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setContact((prevContact) => ({
-      ...prevContact,
-      [name]: value,
-    }));
+  const handleEmailChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+    setEmail(e.target.value); // Update the email state as the user types
   };
 
-  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent the default form submission behavior
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  
     try {
-      
-      // Save the contact data to Sanity
-      const result = await client.create({
-        _type: 'contact', // Specify the Sanity document type
-        email: contact.email,
+      // Send the email data to your Sanity backend using your Sanity client
+      const response = await client.create({
+        _type: "contact", // Replace with your Sanity document type
+        email: email,
+        // Add any other fields you want to save to Sanity
       });
-  
-      console.log('Contact saved, added to the database', result);
-  
-      // Reset the form after successful submission
-      
-    } 
-      
-      catch (error) {
-      console.error('Error saving contact:', error);
-      // Handle the error as needed (e.g., show an error message)
+
+      // Handle a successful submission
+      console.log("Form data sent to Sanity:", response);
+      // You can also show a success message to the user here
+
+      // Clear the email input
+      setEmail("");
+    } catch (error) {
+      // Handle errors, e.g., show an error message to the user
+      console.error("Error submitting form:", error);
     }
   };
 
@@ -53,9 +40,8 @@ const NewsLetter = () => {
         Subscribe to Our Newsletter for Exclusive Updates, Offers, and
         Tips.
       </p>
-
       <div className={newsletterSectionClasses.cardContainer}>
-        <div className={newsletterSectionClasses.cardLeft}>
+      <div className={newsletterSectionClasses.cardLeft}>
           <h3 className={newsletterSectionClasses.cardHeading}>
             Sign Up for Our Newsletter
           </h3>
@@ -69,8 +55,8 @@ const NewsLetter = () => {
             type="email"
             placeholder="Enter your email"
             className={newsletterSectionClasses.inputField}
-            value={contact.email}
-            onChange={handleChange}
+            value={email} // Bind the input value to the email state
+            onChange={handleEmailChange} // Handle input changes
           />
           <button type="submit" className={newsletterSectionClasses.button}>
             Subscribe

@@ -1,7 +1,7 @@
 import { defineType, defineField } from "sanity";
 
 const contact = defineType ({
-  name: 'contacts',
+  name: 'contact',
   title: 'Contacts',
   type: 'document',
   fields: [
