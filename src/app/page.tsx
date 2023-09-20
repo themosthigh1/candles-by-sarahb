@@ -19,7 +19,7 @@ export default async function Home() {
   return (
     <>
       <HeroSection showLink />
-      <ProductReviews />
+      <ProductReviews reviews={[]} />
       <section className={sectionClassNames.section}>
         <div className={sectionClassNames.trending}>
           <h2 className={sectionClassNames.trendingTitle}>

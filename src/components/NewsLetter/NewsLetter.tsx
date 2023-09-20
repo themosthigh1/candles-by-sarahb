@@ -1,4 +1,51 @@
+'use client'
+
+import { useState } from "react";
+import { client } from "../../../sanity/lib/client";
+
 const NewsLetter = () => {
+
+  interface Contact {
+    email: string;
+  }
+
+  const [contact, setContact] = useState<Contact>({
+    email: ''
+  });
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setContact((prevContact) => ({
+      ...prevContact,
+      [name]: value,
+    }));
+  };
+
+  
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  
+    try {
+      
+      // Save the contact data to Sanity
+      const result = await client.create({
+        _type: 'contact', // Specify the Sanity document type
+        email: contact.email,
+      });
+  
+      console.log('Contact saved, added to the database', result);
+  
+      // Reset the form after successful submission
+      
+    } 
+      
+      catch (error) {
+      console.error('Error saving contact:', error);
+      // Handle the error as needed (e.g., show an error message)
+    }
+  };
+
   return (
     <section className={newsletterSectionClasses.container}>
       <h2 className={newsletterSectionClasses.heading}>Stay in the Loop</h2>
@@ -16,13 +63,16 @@ const NewsLetter = () => {
             Get the latest news and updates delivered straight to your inbox.
           </p>
         </div>
-        <form className={newsletterSectionClasses.formContainer}>
+        <form className={newsletterSectionClasses.formContainer} onSubmit={handleSubmit}>
           <input
+            name="email"
             type="email"
             placeholder="Enter your email"
             className={newsletterSectionClasses.inputField}
+            value={contact.email}
+            onChange={handleChange}
           />
-          <button type="button" className={newsletterSectionClasses.button}>
+          <button type="submit" className={newsletterSectionClasses.button}>
             Subscribe
           </button>
         </form>

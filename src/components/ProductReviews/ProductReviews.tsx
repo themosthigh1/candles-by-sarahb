@@ -1,6 +1,45 @@
 'use client'
 
-const ProductReviews = () => {
+import { FC, useEffect, useState } from "react";
+
+interface ProductReviewsSliderProps {
+  reviews: { _key: string; url: string }[];
+  interval?: number;
+}
+
+const ProductReviews:FC<ProductReviewsSliderProps> = (props) => {
+
+  const { reviews, interval = 3000 } = props;
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const goToNextImage = () => {
+    setCurrentImageIndex((prevIndex) => {
+      if (prevIndex === reviews.length - 1) {
+        return 0;
+      } else {
+        return prevIndex + 1;
+      }
+    });
+  };
+
+  const goToPrevImage = () => {
+    setCurrentImageIndex((prevIndex) => {
+      if (prevIndex === 0) {
+        return reviews.length - 1;
+      } else {
+        return prevIndex - 1;
+      }
+    });
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goToNextImage();
+    }, interval);
+
+    return () => clearInterval(timer);
+  }, [interval, currentImageIndex]);
 
   const blockquoteText = [
    {text: 
