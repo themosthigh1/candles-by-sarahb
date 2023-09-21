@@ -27,9 +27,6 @@ const SimilarProductCard:FC<SimilarProductCardProps> = (props) => {
         />
         </Link>
         <div className={gameCardClassNames.gameName}>{productName}
-        <Link href={buyLink}>
-        <button className={gameCardClassNames.buyButton}>Buy</button>
-        </Link>
     </div>
   </div>
   )
