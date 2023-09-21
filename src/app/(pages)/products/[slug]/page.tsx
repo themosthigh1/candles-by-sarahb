@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const GameItem = async (props: { params: { slug: string } }) => {
   const games = await getGames();
-  const isFeaturedGame = games?.find((game) => game.isFeatured);
+  const isFeaturedGame = games?.filter((game) => game.isFeatured);
 
   const {
     params: { slug },
@@ -21,19 +21,18 @@ const GameItem = async (props: { params: { slug: string } }) => {
         <GameDetailsServer slug={slug} />
       </GameDetailsClient>
       {isFeaturedGame && (
-        <div className="mb-6">
-          <h3 className="text-2xl max-w-3xl text-center mx-auto text-primary-dark pt-12 sm:pt-28 pb-8 sm:pb-16 leading-[125%] sm:leading-[187%]">
-          SimilarProducts
-          </h3>
-          <SimilarProductCard 
-            key={isFeaturedGame._id} 
-            productName={isFeaturedGame.name} 
-            imageUrl={isFeaturedGame.images[0].url} 
-            slug={isFeaturedGame.slug.current} 
-            price={isFeaturedGame.price} 
-            buyLink={isFeaturedGame.buyLink}
+        <div className="flex gap-8 flex-wrap">
+        {isFeaturedGame.map((game) => (
+          <SimilarProductCard
+            key={game._id}
+            productName={game.name}
+            imageUrl={game.images[0].url}
+            slug={game.slug.current}
+            price={game.price}
+            buyLink={game.buyLink} 
           />
-        </div>
+        ))}
+      </div>
       )}      
     </>
   );
