@@ -21,7 +21,7 @@ const HeroSection: FC<{ showLink?: boolean }> = (props) => {
     }}
   >
     <div className="text-white container mx-auto px-10 my-auto">
-      <h1 className="text-4xl lg:text-5xl mb-4 ">
+      <h1 className="text-3xl lg:text-5xl mb-4 ">
         Candles By Sarah B.
       </h1>
       <p className="text-lg sm:text-xl md:text-2xl mb-8 text-yellow-300">
