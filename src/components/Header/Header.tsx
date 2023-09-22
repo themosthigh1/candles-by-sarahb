@@ -62,39 +62,6 @@ const Header = () => {
 					<Link href='/' className={logoContainer}>
 						<h1 className={logo}>Candles By Sarah B.</h1>
 					</Link>
-
-					<nav className={nav}>
-						<ul className={ul}>
-
-							<li className='flex items-center justify-center h-7'>
-								{session?.user && (
-									<>
-										<button onClick={() => signOut()} className={logoutBtn}>
-											Logout
-										</button>
-									</>
-								)}
-								{!session?.user && (
-									<>
-										<button onClick={toggleForm} className={signupBtn}>
-											Sign Up
-										</button>
-										<button onClick={signinHandler} className={signinBtn}>
-											Sign In
-											<FcGoogle
-												style={{
-													fontSize: '25px',
-													cursor: 'pointer',
-													marginLeft: '12px',
-												}}
-												className={link}
-											/>
-										</button>
-									</>
-								)}
-							</li>
-						</ul>
-					</nav>
 				</div>
 			</header>
 		</>
