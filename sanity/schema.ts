@@ -4,7 +4,8 @@ import game from './schemas/game'
 import order from './schemas/order'
 import dimension from './schemas/dimension'
 import contact from './schemas/contact'
+import scent from './schemas/scent'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [category, game, order, dimension, contact],
+  types: [category, game, order, dimension, scent, contact],
 }

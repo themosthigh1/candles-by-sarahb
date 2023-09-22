@@ -1,4 +1,4 @@
-import { getGame } from "@/libs/apis";
+import { getGame } from "@/libs/apis"; 
 import Link from "next/link";
 import GameCategoryCard from "../GameCategoryCard/GameCategoryCard";
 

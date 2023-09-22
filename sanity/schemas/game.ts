@@ -70,6 +70,12 @@ export default {
       validation: (Rule: any) => Rule.required().integer().min(0),
     },
     {
+      name: 'scent',
+      type: 'reference',
+      to: [{type: 'scent'}],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'description',
       type: 'text',
       validation: (Rule: any) => [

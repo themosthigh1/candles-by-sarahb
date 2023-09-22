@@ -1,9 +1,7 @@
-
-
 export default {
-    name: 'dimension',
+    name: 'scent',
     type: 'document',
-    title: 'Dimension',
+    title: 'Scent',
     fields: [
       {
         name: 'name',
@@ -18,10 +16,5 @@ export default {
         },
         validation: (Rule: any) => Rule.required(),
       },
-      {
-        name: 'weightPerVessel',
-        type: 'string',
-      },
     ],
   }
-  
