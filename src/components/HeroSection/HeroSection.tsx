@@ -17,7 +17,7 @@ const HeroSection: FC<{ showLink?: boolean }> = (props) => {
       backgroundImage: `url('/images/headerBackground.png')`, // Replace with your image source
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      height: '610px'
+      height: '610px',
     }}
   >
     <div className="text-white container mx-auto px-10 my-auto">
