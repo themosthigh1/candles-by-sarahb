@@ -36,7 +36,7 @@ const Games = async (props: {}) => {
 export default Games;
 
 const classNames = {
-  section: "lg:pb-36 px-4 lg:px-36 text-white text-center",
+  section: "lg:pb-36 px-4 lg:px-36 text-white",
   heading: "text-3xl lg:text-4xl font-bold mb-3",
   subHeading: "text-2xl md:text-4xl mb-3 md:mb-5 text-black",
 };
