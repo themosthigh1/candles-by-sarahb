@@ -36,5 +36,5 @@ const classNames = {
   name: "text-4xl text-black my-5",
   price: "text-2xl text-black mr-2",
   text: 'text-lg text-black mb-2 mr-2',
-  shipping: 'text-lg text-black'
+  shipping: 'text-sm text-black'
 };

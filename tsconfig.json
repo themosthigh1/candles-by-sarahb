@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/libs/apisold.ts"  ],
+, "src/libs/apisold.ts", "src/components/PagePlaceHolder"  ],
   "exclude": [
     "node_modules"
   ]
