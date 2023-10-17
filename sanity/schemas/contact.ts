@@ -1,17 +1,16 @@
 import { defineType, defineField } from "sanity";
 
-const contact = defineType ({
-  name: 'contact',
-  title: 'Contacts',
-  type: 'document',
+const contact = defineType({
+  name: "contact",
+  title: "Newsletter Contacts",
+  type: "document",
   fields: [
-    defineField
-    ({
-      name: 'email',
-      title: 'Email',
-      type: 'string',
+    defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
     }),
   ],
 });
 
-export default contact
+export default contact;

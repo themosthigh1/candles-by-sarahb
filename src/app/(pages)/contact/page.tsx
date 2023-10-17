@@ -1,11 +1,10 @@
-import PageTitle from '@/components/PageTitle/PageTitle'
-import React from 'react'
+import Content from './Content'
 
 const ContactPage = () => {
   return (
-    <div>
-      <PageTitle title={'Contact'}/>
-    </div>
+    <section>
+      <Content/>
+    </section>
   )
 }
 
