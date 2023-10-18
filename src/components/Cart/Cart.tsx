@@ -100,11 +100,9 @@ const Cart: FC = () => {
         <span className={classNames.subtotalText}>Subtotal</span>
         <span className={classNames.subtotalPrice}>$ {totalPrice}</span>
       </div>
-      <Link href="https://buy.stripe.com/6oE8xah0w1iD57WaEF">
-        <button onClick={checkoutHandler} className={classNames.checkoutBtn}>
-          Checkout
-        </button>
-      </Link>
+      <button onClick={checkoutHandler} className={classNames.checkoutBtn}>
+        Checkout
+      </button>
     </div>
   );
 };
@@ -119,8 +117,7 @@ const classNames = {
   subtotalContainer: "px-4 py-2 bg-gray-200 flex items-center justify-between",
   subtotalText: "text-gray-600",
   subtotalPrice: "font-semibold",
-  checkoutBtn:
-    "w-full py-2 bg-blue-500 text-white rounded mt-4 hover:bg-blue-600",
+  checkoutBtn: "p-2 bg-black text-white rounded mx-4 my-2 hover:bg-gray-900",
 };
 
 const cartItemClassNames = {

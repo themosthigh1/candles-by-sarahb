@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
 export default ContactForm;
 
 const inputClassNames = {
-  inputfield: "border-2 border-black outline-yellow-500 h-10 px-3 py-2 mb-8",
-  messageField: "border-2 border-black outline-yellow-500 px-3 py-2 mb-8 h-40",
+  inputfield: "border border-black h-10 px-3 py-2 mb-8",
+  messageField: "border border-black px-3 py-2 mb-8 h-40",
   label: "block text-sm font-semibold text-gray-700 mb-2",
 };
