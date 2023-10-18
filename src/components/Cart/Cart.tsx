@@ -74,20 +74,22 @@ const Cart: FC = () => {
               />
               <div className={cartItemClassNames.details}>
                 <h3 className={cartItemClassNames.name}>{item.name}</h3>
-                <p className={cartItemClassNames.price}>
-                  $ {item.price.toFixed(2)}
-                </p>
-              </div>
-              <div className={cartItemClassNames.quantityContainer}>
-                <span className={cartItemClassNames.quantity}>
-                  {item.quantity}
-                </span>
-                <button
-                  onClick={() => handleRemoveItem(item._id)}
-                  className={cartItemClassNames.removeButton}
-                >
-                  <RiCloseLine />
-                </button>
+                <div className="flex">
+                  <p className={cartItemClassNames.price}>
+                    $ {item.price.toFixed(2)}
+                  </p>
+                  <div className={cartItemClassNames.quantityContainer}>
+                    <span className={cartItemClassNames.quantity}>
+                      {item.quantity}
+                    </span>
+                    <button
+                      onClick={() => handleRemoveItem(item._id)}
+                      className={cartItemClassNames.removeButton}
+                    >
+                      <RiCloseLine />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ))
@@ -126,8 +128,8 @@ const cartItemClassNames = {
   details: "flex-1",
   name: "text-sm md:text-base font-medium",
   price: "text-gray-600",
-  quantityContainer: "flex items-center",
-  quantity: "px-2",
+  quantityContainer: "flex items-end",
+  quantity: "px-2 flex-1",
   removeButton:
     "w-6 h-6 bg-gray-200 text-gray-600 flex items-center justify-center rounded ml-2",
 };

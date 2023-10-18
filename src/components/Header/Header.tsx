@@ -60,7 +60,7 @@ const Header = () => {
       <header className={header}>
         <div className={container}>
           <Link href="/" className={logoContainer}>
-            <h1 className={logo}>Logo</h1>
+            <h1 className={logo}>Candles By Sarah B.</h1>
           </Link>
 
           <nav className={nav}>
