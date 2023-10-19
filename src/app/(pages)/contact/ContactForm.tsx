@@ -49,7 +49,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex flex-col my-16">
+      <div className="flex flex-col mt-16">
         <label htmlFor="firstName" className={inputClassNames.label}>
           First Name
         </label>
@@ -96,7 +96,9 @@ const ContactForm: React.FC = () => {
 export default ContactForm;
 
 const inputClassNames = {
-  inputfield: "border border-black h-10 px-3 py-2 mb-8",
-  messageField: "border border-black px-3 py-2 mb-8 h-40",
+  inputfield:
+    "border border-slate-300 h-10 px-3 py-2 mb-8 rounded-sm ring-color-yellow-500",
+  messageField:
+    "border border-slate-300 px-3 py-2 mb-8 h-40 rounded-sm ring-color-yellow-500",
   label: "block text-sm font-semibold text-gray-700 mb-2",
 };
