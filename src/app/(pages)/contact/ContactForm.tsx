@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { useRouter } from "next/router";
 import { client } from "../../../../sanity/lib/client";
 
@@ -9,7 +9,7 @@ interface Contact {
   message: string;
 }
 
-const ContactForm: React.FC = () => {
+const ContactForm: FC = () => {
   const [contact, setContact] = useState<Contact>({
     firstName: "",
     lastName: "",

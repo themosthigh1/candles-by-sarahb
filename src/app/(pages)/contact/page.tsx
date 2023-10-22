@@ -1,11 +1,11 @@
-import Content from './Content'
+import Content from "./Content";
 
 const ContactPage = () => {
   return (
     <section>
-      <Content/>
+      <Content />
     </section>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;
