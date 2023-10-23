@@ -8,16 +8,16 @@ const page = () => {
       <PageTitle title={"About Us"} />
       <div className={pageClassNames.pageContainer}>
         <p>
-          Unlike those familiar, over scented, “assembly line” produced candles,
-          Candles by Sarah B takes pride in each and every individual candle
-          created. With humble beginnings in a small in-home work studio in
-          rural North Carolina, it would take more than three years to perfect
-          the look, charm, and overall appeal of our products. As with any
-          luxury brand, Sarah B cultivates each individual product by hand from
-          beginning to end. The precise imperfections with our lines adds to its
-          exclusivity but with a high standard of guaranteed satisfaction. We
-          guarantee that each product from the vessel, to flavor recipe, to the
-          packaging will only pass through one pair of hands!
+          Unlike those familiar, heavily scented, mass-produced candles, Candles
+          by Sarah B takes great pride in every single candle it creates. With
+          humble beginnings in a small, in-home work studio in rural North
+          Carolina, it took over three years to perfect the appearance, charm,
+          and overall appeal of our products. Like any luxury brand, Sarah B
+          personally crafts each product from start to finish. The precise
+          imperfections in our lines add to their exclusivity while maintaining
+          a high standard of guaranteed satisfaction. We assure you that each
+          product, from the vessel and flavor recipe to the packaging, passes
+          through the hands of a single artisan!
         </p>
         <div className="flex justify-center">
           <Image
