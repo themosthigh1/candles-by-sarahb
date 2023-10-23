@@ -12,7 +12,7 @@ const GameDetailsServer: any = async (props: { slug: string }) => {
       <h2 className={classNames.name}>{gameDetails.name}</h2>
       <div className="flex justify-center items-baseline mb-5">
         <p className={classNames.price}>$ {gameDetails.price}</p>
-        <p className={classNames.shipping}> + 9.99 Shipping</p>
+        <p className={classNames.shipping}> + 9.99 Shipping/Handling</p>
       </div>
       <h2 className={classNames.description}>{gameDetails.description}</h2>
       <div className="flex justify-center items-baseline">
@@ -38,5 +38,5 @@ const classNames = {
   name: "text-4xl text-black my-5",
   price: "text-2xl text-black mr-2",
   text: "text-lg text-black mb-2 mr-2",
-  shipping: "text-sm text-black",
+  shipping: "text-xs text-black",
 };

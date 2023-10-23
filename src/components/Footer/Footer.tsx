@@ -7,7 +7,7 @@ const footerText = '"The Redolence of Country Life."'
 const footerLinks = [
   {name: 'Shipping', link: '/shipping'},
   {name: 'Returns and Exchanges', link: '/returns-and-exchanges'},
-  {name: 'FAQ', link: 'faq'},
+
   {name: 'Privacy Policy', link: '/privacy-policy'},
   {name: 'Refund Policy', link: '/refund-policy'},
 ]
