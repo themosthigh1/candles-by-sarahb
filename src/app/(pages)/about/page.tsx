@@ -19,7 +19,7 @@ const page = () => {
           product, from the vessel and flavor recipe to the packaging, passes
           through the hands of a single artisan!
         </p>
-        <div className="flex justify-center">
+        <div className="flex justify-center bg-white-100">
           <Image
             src={Logo}
             alt={"Candles By Sarah B Logo"}
