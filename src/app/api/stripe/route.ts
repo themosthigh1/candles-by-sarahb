@@ -39,6 +39,12 @@ export async function POST(req: Request, res: Response) {
     });
 
     await updateGameQuantity(updatedItems);
+    await createOrder(updatedItems, {
+      phoneNumber: session.customer_details?.phone as string,
+      userEmail: session.customer_details?.email as string,
+      shippingAddress: session.customer_details?.address?.city as string,
+      totalPrice: session.amount_total as number,
+    });
 
     return NextResponse.json(session, {
       status: 200,
