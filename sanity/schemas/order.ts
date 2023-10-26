@@ -1,6 +1,6 @@
 // Order Schema
 
-export default {
+const order = {
   name: "order",
   type: "document",
   title: "Order",
@@ -42,5 +42,11 @@ export default {
       },
       initialValue: "pending",
     },
+    {
+      name: "totalPrice",
+      title: "Total Price",
+      type: "number",
+    },
   ],
 };
+export default order;

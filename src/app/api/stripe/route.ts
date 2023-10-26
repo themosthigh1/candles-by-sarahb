@@ -1,4 +1,4 @@
-import { updateGameQuantity } from "@/libs/apis";
+import { createOrder, updateGameQuantity } from "@/libs/apis";
 import sanityClient from "@/libs/sanity";
 import { Game, GameSubset } from "@/models/game";
 import { NextResponse } from "next/server";
@@ -39,6 +39,12 @@ export async function POST(req: Request, res: Response) {
     });
 
     await updateGameQuantity(updatedItems);
+    await createOrder(updatedItems, {
+      userEmail: session.customer_details?.email as string,
+      phoneNumber: session.customer_details?.phone as string,
+      shippingAddress: session.customer_details?.address?.line1 as string,
+      totalPrice: session.amount_total ? session.amount_total / 100 : 0,
+    });
 
     return NextResponse.json(session, {
       status: 200,
