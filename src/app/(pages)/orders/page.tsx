@@ -18,64 +18,66 @@ const Orders = async () => {
   return (
     <div>
       <HeroSection />
+      <div className={titleClassNames.container}>
+        <div>
+          <h2 className={titleClassNames.trendingTitle}>Orders</h2>
+        </div>
 
-      <div className="relative overflow-x-auto px-6 sm:px-12 md:px-20 lg:px-36 pb-40">
-        <table className="w-full text sm text-left text-gray-400">
-          <thead className="text-xs uppercase bg-gray-700 text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Product(s) name
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Unit Price
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Order Status
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Total Price
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {orderData.map((order: any) => {
-              const totalPrice = order.items.reduce((acc: any, item: any) => {
-                const itemPrice = item.quantity * item.game.price;
-                return acc + itemPrice;
-              }, 0);
+        <div className="relative overflow-x-auto pb-40">
+          <div className="w-full text sm text-left text-gray-400">
+            <div>
+              {orderData.map((order: any) => {
+                const totalPrice = order.items.reduce((acc: any, item: any) => {
+                  const itemPrice = item.quantity * item.game.price;
+                  return acc + itemPrice;
+                }, 0);
 
-              return (
-                <tr
-                  key={order._id}
-                  className="border-b bg-gray-800 border-gray-700"
-                >
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium whitespace-nowrap text-red-500"
+                return (
+                  <div
+                    key={order._id}
+                    className="flex justify-between border-b"
                   >
-                    {order.items.map((item: any) => (
-                      <span key={item._id}>
-                        {item.game.name} ({item.quantity}) <br />
-                      </span>
-                    ))}
-                  </th>
-                  <td className="px-6 py-4">
-                    {order.items.map((item: any) => (
-                      <span key={item._id}>
-                        {item.game.price} <br />
-                      </span>
-                    ))}
-                  </td>
-                  <td className="px-6 py-4">{order.orderStatus}</td>
-                  <td className="px-6 py-4">$ {totalPrice}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    <div className="px-6 py-4 whitespace-nowrap">
+                      <h1 className="text-xl mb-5 text-black">Product</h1>
+                      {order.items.map((item: any) => (
+                        <span key={item._id}>
+                          {item.game.name} {item.quantity} <br />
+                        </span>
+                      ))}
+                    </div>
+                    <div className="px-6 py-4">
+                      <h1 className="text-xl mb-5 text-black">Item Price</h1>
+                      {order.items.map((item: any) => (
+                        <span key={item._id}>
+                          $ {item.game.price}.00 <br />
+                        </span>
+                      ))}
+                    </div>
+                    <div className="px-6 py-4">
+                      <h1 className="text-xl mb-5 text-black">Order Status</h1>
+                      <div className="px-6 py-4">{order.orderStatus}</div>
+                    </div>
+                    <div className="px-6 py-4">
+                      <h1 className="text-xl mb-5 text-black font-semibold">
+                        Total Price
+                      </h1>
+                      <div className="px-6 py-4">$ {totalPrice}.00</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Orders;
+
+const titleClassNames = {
+  container: "px-6 sm:px-12 md:px-20 lg:px-36 mx-auto py-8 text-black mt-5",
+  trending: "flex flex-col sm:flex-row items-center justify-between",
+  trendingTitle: "text-2xl md:text-4xl mb-3 md:mb-5",
+};

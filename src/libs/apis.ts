@@ -148,32 +148,21 @@ export const updateGameQuantity = async (games: GameSubset[]) => {
   return data;
 };
 
-export const createOrder = async (
-  games: GameSubset[],
-  orderData: {
-    userEmail: string;
-    phoneNumber: string;
-    shippingAddress: string;
-    totalPrice: number;
-  }
-) => {
+export const createOrder = async (games: GameSubset[], userEmail: string) => {
   const mutation = {
     mutations: [
       {
         create: {
           _type: "order",
-          userEmail: orderData.userEmail,
-          phoneNumber: orderData.phoneNumber,
-          shippingAddress: orderData.shippingAddress,
-          items: games.map((game) => ({
-            _type: "orderItem",
+          items: games.map((game, idx) => ({
             game: {
+              _key: idx,
               _type: "reference",
               _ref: game._id,
             },
             quantity: game.quantity,
           })),
-          totalPrice: orderData.totalPrice,
+          userEmail,
           orderStatus: "pending",
         },
       },

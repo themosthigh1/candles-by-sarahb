@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 });
 
 export async function POST(req: Request, res: Response) {
-  const cartItems = (await req.json()) as Game[];
+  const { cartItems, userEmail } = await req.json();
   const origin = req.headers.get("origin");
   const updatedItems: GameSubset[] =
     (await fetchAndCalculateItemPricesAndQuantity(cartItems)) as GameSubset[];
@@ -34,17 +34,12 @@ export async function POST(req: Request, res: Response) {
       payment_method_types: ["card"],
       billing_address_collection: "required",
       mode: "payment",
-      success_url: `${origin}/?success=true`,
+      success_url: `${origin}/thank-you/?success=true`,
       phone_number_collection: { enabled: true },
     });
-
+    console.log("SESSION ", session);
     await updateGameQuantity(updatedItems);
-    await createOrder(updatedItems, {
-      userEmail: session.customer_details?.email as string,
-      phoneNumber: session.customer_details?.phone as string,
-      shippingAddress: session.customer_details?.address?.line1 as string,
-      totalPrice: session.amount_total ? session.amount_total / 100 : 0,
-    });
+    await createOrder(updatedItems, userEmail);
 
     return NextResponse.json(session, {
       status: 200,

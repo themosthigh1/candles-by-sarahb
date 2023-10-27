@@ -19,6 +19,8 @@ const Cart: FC = () => {
 
   const { data: session } = useSession();
 
+  console.log(session);
+
   const dispatch = useAppDispatch();
 
   const handleRemoveItem = (id: string) =>
@@ -27,9 +29,14 @@ const Cart: FC = () => {
   const checkoutHandler = async () => {
     const stripe = await getStripe();
 
-    const { data } = await axios.post("/api/stripe", cartItems);
+    const { data } = await axios.post("/api/stripe", {
+      cartItems,
+      userEmail: session?.user?.email,
+    });
 
     if (!data) return;
+
+    localStorage.removeItem("cartItems");
 
     stripe.redirectToCheckout({ sessionId: data.id });
   };
@@ -107,14 +114,16 @@ const Cart: FC = () => {
 const classNames = {
   container:
     "fixed top-0 right-0 z-50 h-screen w-4/5 md:w-1/3 bg-white shadow-lg transform transition-transform duration-300 ease-in-out",
-  header: "px-4 py-2 bg-gray-200 flex items-center justify-between",
-  title: "text-lg font-semibold",
+  header: "px-4 py-4 flex items-center justify-between bg-yellow-300",
+  title: "text-xl text-center",
   closeBtn: "text-gray-600 hover:text-gray-800",
-  itemContainer: "p-2 flex flex-col items-center border-b",
-  subtotalContainer: "px-4 py-2 bg-gray-200 flex items-center justify-between",
+  itemContainer: "p-2 flex flex-col items-center",
+  subtotalContainer:
+    "px-4 py-2 bg-gray-200 flex items-center justify-between my-5",
   subtotalText: "text-gray-600",
   subtotalPrice: "font-semibold",
-  checkoutBtn: "p-2 bg-black text-white rounded mx-4 my-2 hover:bg-gray-900",
+  checkoutBtn:
+    "p-2 bg-black text-white rounded mx-4 my-2 hover:bg-gray-900 mt-5",
 };
 
 const cartItemClassNames = {
@@ -123,10 +132,10 @@ const cartItemClassNames = {
   details: "flex-1",
   name: "text-sm md:text-base font-medium",
   price: "text-gray-600",
-  quantityContainer: "flex items-end",
+  quantityContainer: "flex justify-end",
   quantity: "px-2 flex-1",
   removeButton:
-    "w-6 h-6 bg-gray-200 text-gray-600 flex items-center justify-center rounded ml-2",
+    "w-6 h-6 bg-gray-200 text-gray-600 flex items-center justify-center rounded ml-20",
 };
 
 export default Cart;

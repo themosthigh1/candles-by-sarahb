@@ -6,8 +6,6 @@ const order = {
   title: "Order",
   fields: [
     { name: "userEmail", title: "User Email", type: "string" },
-    { name: "phoneNumber", title: "Phone Number", type: "string" },
-    { name: "shippingAddress", title: "Shipping Address", type: "string" },
     {
       name: "items",
       title: "Items",
@@ -17,8 +15,8 @@ const order = {
           type: "object",
           fields: [
             {
-              name: "game",
-              title: "Game",
+              name: "product",
+              title: "Product",
               type: "reference",
               to: [{ type: "game" }],
             },
@@ -41,11 +39,6 @@ const order = {
         ],
       },
       initialValue: "pending",
-    },
-    {
-      name: "totalPrice",
-      title: "Total Price",
-      type: "number",
     },
   ],
 };
