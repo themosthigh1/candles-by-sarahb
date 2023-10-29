@@ -106,18 +106,27 @@ const Cart: FC = () => {
         <>
           <div className={classNames.totalsContainer}>
             <div className={classNames.subtotalContainer}>
+              <span className={classNames.subtotalText}>Subtotal</span>
+              <span className={classNames.subtotalPrice}>
+                $ {totalPrice.toFixed(2)}
+              </span>
+            </div>
+
+            <div className={classNames.subtotalContainer}>
               <span className={classNames.subtotalText}>Shipping*</span>
               <span className={classNames.subtotalPrice}>
                 $ {shippingCost.toFixed(2)}
               </span>
             </div>
-
-            <div className={classNames.subtotalContainer}>
-              <span className={classNames.subtotalText}>Total</span>
-              <span className={classNames.subtotalPrice}>
-                $ {totalWithShipping.toFixed(2)}
-              </span>
+          </div>
+          <div className="color-black mx-4">
+            <div className="text-2xl mb-10 flex items-center justify-between">
+              <h1>Total</h1>
+              <h1>$ {totalWithShipping.toFixed(2)}</h1>
             </div>
+            <p className="text-xs">
+              * Shipping cost increases by $2 for every 4 items.
+            </p>
           </div>
           <button onClick={checkoutHandler} className={classNames.checkoutBtn}>
             Checkout
@@ -136,7 +145,7 @@ const classNames = {
   closeBtn: "text-gray-600 hover:text-gray-800",
   itemContainer: "p-2 flex flex-col items-center",
   subtotalContainer: "bg-gray-200 flex items-center justify-between",
-  totalsContainer: "px-4 py-2 bg-gray-200 my-5 ",
+  totalsContainer: "px-4 py-2 bg-gray-200 my-2",
   shippingText: "text-gray-600",
   subtotalText: "text-gray-600",
   subtotalPrice: "font-semibold",
