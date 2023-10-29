@@ -19,7 +19,10 @@ const page = async () => {
           </h1>
         </div>
         <div className="flex justify-center">
-          <p>You will receive an email with your order details.</p>
+          <p>
+            You will receive an email at {session.user?.email} with your order
+            details.
+          </p>
         </div>
         <div className="flex justify-center">
           <button className="mt-8 sm:mt-10 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium shadow-sm text-white bg-black hover:bg-yellow-300 sm:px-8 transition-all duration-200">

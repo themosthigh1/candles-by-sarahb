@@ -37,7 +37,6 @@ export async function POST(req: Request, res: Response) {
       success_url: `${origin}/thank-you/?success=true`,
       phone_number_collection: { enabled: true },
     });
-    console.log("SESSION ", session);
     await updateGameQuantity(updatedItems);
     await createOrder(updatedItems, userEmail);
 

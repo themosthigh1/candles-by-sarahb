@@ -9,7 +9,6 @@ import { removeItemFromCart, toggleCart } from "@/redux/features/cartSlice";
 import Image from "next/image";
 import useCartTotals from "@/hooks/useCartTotals";
 import { getStripe } from "@/libs/loadStripe";
-import Link from "next/link";
 
 const Cart: FC = () => {
   const { showCart, cartItems } = useAppSelector((state) => state.cart);
@@ -18,8 +17,6 @@ const Cart: FC = () => {
   const { totalPrice } = useCartTotals();
 
   const { data: session } = useSession();
-
-  console.log(session);
 
   const dispatch = useAppDispatch();
 
@@ -46,6 +43,12 @@ const Cart: FC = () => {
   }, []);
 
   if (!renderComponent) return <></>;
+
+  // Calculate shipping cost based on the number of items in the cart
+  const shippingCost = cartItems.length <= 4 ? 9.99 : 11.99;
+
+  // Calculate the total price by summing the product prices and shipping cost
+  const totalWithShipping = totalPrice + shippingCost;
 
   return (
     <div
@@ -96,17 +99,31 @@ const Cart: FC = () => {
             </div>
           ))
         ) : (
-          <p>Your Cart is Empty</p>
+          <p className="my-10">Your Cart is Empty</p>
         )}
       </div>
+      {cartItems.length > 0 && (
+        <>
+          <div className={classNames.totalsContainer}>
+            <div className={classNames.subtotalContainer}>
+              <span className={classNames.subtotalText}>Shipping*</span>
+              <span className={classNames.subtotalPrice}>
+                $ {shippingCost.toFixed(2)}
+              </span>
+            </div>
 
-      <div className={classNames.subtotalContainer}>
-        <span className={classNames.subtotalText}>Subtotal</span>
-        <span className={classNames.subtotalPrice}>$ {totalPrice}</span>
-      </div>
-      <button onClick={checkoutHandler} className={classNames.checkoutBtn}>
-        Checkout
-      </button>
+            <div className={classNames.subtotalContainer}>
+              <span className={classNames.subtotalText}>Total</span>
+              <span className={classNames.subtotalPrice}>
+                $ {totalWithShipping.toFixed(2)}
+              </span>
+            </div>
+          </div>
+          <button onClick={checkoutHandler} className={classNames.checkoutBtn}>
+            Checkout
+          </button>
+        </>
+      )}
     </div>
   );
 };
@@ -118,8 +135,9 @@ const classNames = {
   title: "text-xl text-center",
   closeBtn: "text-gray-600 hover:text-gray-800",
   itemContainer: "p-2 flex flex-col items-center",
-  subtotalContainer:
-    "px-4 py-2 bg-gray-200 flex items-center justify-between my-5",
+  subtotalContainer: "bg-gray-200 flex items-center justify-between",
+  totalsContainer: "px-4 py-2 bg-gray-200 my-5 ",
+  shippingText: "text-gray-600",
   subtotalText: "text-gray-600",
   subtotalPrice: "font-semibold",
   checkoutBtn:
