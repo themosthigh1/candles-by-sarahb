@@ -33,37 +33,33 @@ const Orders = async () => {
                 }, 0);
 
                 return (
-                  <div
-                    key={order._id}
-                    className="flex justify-between border-b"
-                  >
-                    <div className="px-6 py-4 whitespace-nowrap">
-                      <h1 className="text-xl mb-5 text-black">Product</h1>
-                      {order.items.map((item: any) => (
-                        <span key={item._id}>
-                          {item.game.name} {item.quantity} <br />
-                        </span>
-                      ))}
+                  <>
+                    <div
+                      key={order._id}
+                      className="flex justify-between border-b"
+                    >
+                      <div className="px-6 py-4 whitespace-nowrap">
+                        {order.items.map((item: any) => (
+                          <span key={item._id}>
+                            {item.game.name} {item.quantity} <br />
+                          </span>
+                        ))}
+                      </div>
+                      <div className="px-6 py-4">
+                        {order.items.map((item: any) => (
+                          <span key={item._id}>
+                            $ {item.game.price}.00 <br />
+                          </span>
+                        ))}
+                      </div>
+                      <div className="px-6 py-4">
+                        <div className="px-6 py-4">{order.orderStatus}</div>
+                      </div>
+                      <div className="px-6 py-4">
+                        <div className="px-6 py-4">$ {totalPrice}.00</div>
+                      </div>
                     </div>
-                    <div className="px-6 py-4">
-                      <h1 className="text-xl mb-5 text-black">Item Price</h1>
-                      {order.items.map((item: any) => (
-                        <span key={item._id}>
-                          $ {item.game.price}.00 <br />
-                        </span>
-                      ))}
-                    </div>
-                    <div className="px-6 py-4">
-                      <h1 className="text-xl mb-5 text-black">Order Status</h1>
-                      <div className="px-6 py-4">{order.orderStatus}</div>
-                    </div>
-                    <div className="px-6 py-4">
-                      <h1 className="text-xl mb-5 text-black font-semibold">
-                        Total Price
-                      </h1>
-                      <div className="px-6 py-4">$ {totalPrice}.00</div>
-                    </div>
-                  </div>
+                  </>
                 );
               })}
             </div>

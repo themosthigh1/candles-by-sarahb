@@ -15,6 +15,28 @@ export async function POST(req: Request, res: Response) {
     (await fetchAndCalculateItemPricesAndQuantity(cartItems)) as GameSubset[];
   try {
     const session = await stripe.checkout.sessions.create({
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: "fixed_amount",
+            fixed_amount: {
+              amount: 999,
+              currency: "usd",
+            },
+            display_name: "Ground shipping",
+            delivery_estimate: {
+              minimum: {
+                unit: "business_day",
+                value: 7,
+              },
+              maximum: {
+                unit: "business_day",
+                value: 10,
+              },
+            },
+          },
+        },
+      ],
       line_items: updatedItems.map((item) => ({
         quantity: item.quantity,
         adjustable_quantity: {
@@ -31,6 +53,7 @@ export async function POST(req: Request, res: Response) {
           unit_amount: parseInt((item.price * 100).toString()),
         },
       })),
+
       payment_method_types: ["card"],
       billing_address_collection: "required",
       mode: "payment",

@@ -148,7 +148,7 @@ const classNames = {
   totalsContainer: "px-4 py-2 bg-gray-200 my-2",
   shippingText: "text-gray-600",
   subtotalText: "text-gray-600",
-  subtotalPrice: "font-semibold",
+  subtotalPrice: "",
   checkoutBtn:
     "p-2 bg-black text-white rounded mx-4 my-2 hover:bg-gray-900 mt-5",
 };
