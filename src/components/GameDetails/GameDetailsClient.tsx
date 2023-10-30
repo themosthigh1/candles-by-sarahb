@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
-
+import toast, { Toaster } from "react-hot-toast";
 import { getGame } from "@/libs/apis";
 import CarouselSlider from "@/components/CarouselSlider/CarouselSlider";
 import { Game } from "@/models/game";
@@ -49,6 +49,19 @@ const GameDetailsClient = (props: {
   const handleAddToCart = () => {
     if (!gameDetails) return;
     dispatch(addItemToCart({ ...gameDetails, quantity }));
+    toast(
+      <div>
+        <div>
+          {quantity} {gameDetails.name}(s)
+        </div>
+        <div>Added to cart.</div>
+      </div>,
+      {
+        style: {
+          borderRadius: "0px",
+        },
+      }
+    );
   };
 
   return (
@@ -94,6 +107,7 @@ const GameDetailsClient = (props: {
             >
               <FaShoppingCart />
             </button>
+            <Toaster />
           </div>
 
           {/* Render Game Details Server */}

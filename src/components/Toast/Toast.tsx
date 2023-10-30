@@ -1,9 +1,11 @@
-'use-client';
+"use-client";
 
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast("Here is your toast.");
 
 const Toast = () => {
-	return <Toaster />;
+  return <Toaster />;
 };
 
 export default Toast;
