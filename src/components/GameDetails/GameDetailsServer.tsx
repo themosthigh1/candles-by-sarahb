@@ -30,7 +30,7 @@ const GameDetailsServer: any = async (props: { slug: string }) => {
       <div className="my-10">
         <CandleCare />
       </div>
-      <Link href={gameDetails.buyLink}>
+      <Link href="/candle-care">
         <button className="text-black mr-4 hover:bg-yellow-400 bg-yellow-300 py-2 px-4">
           Candle Care
         </button>

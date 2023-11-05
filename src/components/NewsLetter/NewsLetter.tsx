@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { SetStateAction, useState } from "react";
 import { client } from "../../../sanity/lib/client";
@@ -16,7 +16,9 @@ const NewsLetter = () => {
     </div>
   ); // State to hold the email input value
 
-  const handleEmailChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+  const handleEmailChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setEmail(e.target.value); // Update the email state as the user types
   };
 
@@ -39,10 +41,11 @@ const NewsLetter = () => {
             Thanks for Signing Up!
           </h3>
           <p className={newsletterSectionClasses.cardSubHeading}>
-           Stay tuned for our latest news and updates delivered straight to your inbox.
+            Stay tuned for our latest news and updates delivered straight to
+            your inbox.
           </p>
         </div>
-      )
+      );
       // Clear the email input
       setEmail("");
     } catch (error) {
@@ -55,12 +58,14 @@ const NewsLetter = () => {
     <section className={newsletterSectionClasses.container}>
       <h2 className={newsletterSectionClasses.heading}>Stay in the Loop</h2>
       <p className={newsletterSectionClasses.subHeading}>
-        Subscribe to Our Newsletter for Exclusive Updates, Offers, and
-        Tips.
+        Subscribe to Our Newsletter for Exclusive Updates, Offers, and Tips.
       </p>
       <div className={newsletterSectionClasses.cardContainer}>
         {formData}
-        <form className={newsletterSectionClasses.formContainer} onSubmit={handleSubmit}>
+        <form
+          className={newsletterSectionClasses.formContainer}
+          onSubmit={handleSubmit}
+        >
           <input
             name="email"
             type="email"
@@ -94,5 +99,5 @@ const newsletterSectionClasses = {
   inputField:
     "w-full md:w-3/4 py-3 px-4 text-gray-700 rounded-t-lg md:rounded-l-lg md:rounded-t-none md:rounded-r-none",
   button:
-    "bg-yellow-300 hover:bg-yellow-700 text-black py-3 px-8  transition-all duration-200 md:ml-4 mt-4 md:mt-0",
+    "bg-yellow-300 hover:bg-yellow-400 text-black py-3 px-8  transition-all duration-200 md:ml-4 mt-4 md:mt-0",
 };
