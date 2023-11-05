@@ -9,7 +9,11 @@ const ContactInfo = () => {
         <p> Reidsville, NC 27320</p>
       </div>
       <div className="flex">
-        <h1 className="text-xl">Map</h1>
+        <div className="flex flex-col">
+          <h1 className="text-xl mb-5">Contact Info</h1>
+          <p>Phone: (336) 613-xxxx</p>
+          <p>Email: sarahb@candlesbysarahb.com</p>
+        </div>
       </div>
     </div>
   );

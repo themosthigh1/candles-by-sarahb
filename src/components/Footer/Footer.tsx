@@ -8,10 +8,10 @@ const footerText = '"The Redolence of Country Life."';
 
 const footerLinks = [
   { name: "Shipping", link: "/shipping" },
+  { name: "Candle Care", link: "/candle-care" },
   { name: "Returns and Exchanges", link: "/returns-and-exchanges" },
 
   { name: "Privacy Policy", link: "/privacy-policy" },
-  { name: "Candle Care", link: "/candle-care" },
 ];
 
 const contactLinks = [
@@ -59,7 +59,7 @@ const Footer = () => {
             </h2>
             <ul className={section2ul}>
               {footerLinks.map((footerLink, i) =>
-                i < 3 ? (
+                i < 4 ? (
                   <li key={i}>
                     <Link href={footerLink.link}>{footerLink.name}</Link>
                   </li>
@@ -82,7 +82,7 @@ const Footer = () => {
             </div>
             <ul className={section2ul}>
               {footerLinks.map((footerLink, i) =>
-                i > 2 ? (
+                i > 3 ? (
                   <li key={i}>
                     <Link href={footerLink.link}>{footerLink.name}</Link>
                   </li>

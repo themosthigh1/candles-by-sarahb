@@ -49,12 +49,12 @@ const GameDetailsClient = (props: {
   const handleAddToCart = () => {
     if (!gameDetails) return;
     dispatch(addItemToCart({ ...gameDetails, quantity }));
-    toast(
+    toast.success(
       <div>
-        <div>
+        <p>
           {quantity} {gameDetails.name}(s)
-        </div>
-        <div>Added to cart.</div>
+        </p>
+        <p>Added to cart.</p>
       </div>,
       {
         style: {
@@ -107,7 +107,6 @@ const GameDetailsClient = (props: {
             >
               <FaShoppingCart />
             </button>
-            <Toaster />
           </div>
 
           {/* Render Game Details Server */}
