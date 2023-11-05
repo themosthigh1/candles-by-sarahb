@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { RiCloseLine } from "react-icons/ri";
 import axios from "axios";
 import { useAppDispatch, useAppSelector } from "@/hooks/storeHook";
@@ -33,6 +34,11 @@ const Cart: FC = () => {
 
     if (!data) return;
 
+    toast.success(<h2>Proceeding to checkout.</h2>, {
+      style: {
+        borderRadius: "0px",
+      },
+    });
     localStorage.removeItem("cartItems");
 
     stripe.redirectToCheckout({ sessionId: data.id });

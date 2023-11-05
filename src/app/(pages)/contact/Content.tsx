@@ -3,6 +3,7 @@ import Image from "next/image";
 import ContactForm from "./ContactForm";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import Logo from "../../../../public/images/Logo-Big.png";
+import ContactInfo from "@/components/ContactInfo/ContactInfo";
 
 const Content = () => {
   return (
@@ -17,13 +18,8 @@ const Content = () => {
         <div>
           <ContactForm />
         </div>
-        <div className="flex justify-center">
-          <Image
-            src={Logo}
-            alt={"Candles By Sarah B Logo"}
-            width={500}
-            height={300}
-          />
+        <div>
+          <ContactInfo />
         </div>
       </div>
     </div>

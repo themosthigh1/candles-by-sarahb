@@ -11,17 +11,17 @@ const footerLinks = [
   { name: "Returns and Exchanges", link: "/returns-and-exchanges" },
 
   { name: "Privacy Policy", link: "/privacy-policy" },
-  { name: "Refund Policy", link: "/refund-policy" },
+  { name: "Candle Care", link: "/candle-care" },
 ];
 
 const contactLinks = [
   {
     link: "https://www.facebook.com/profile.php?id=100090843807874",
-    icon: <FaFacebook />,
+    icon: <FaFacebook size={20} />,
   },
   {
     link: "/contact",
-    icon: <GrMail />,
+    icon: <GrMail size={20} />,
   },
 ];
 

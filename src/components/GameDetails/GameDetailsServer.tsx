@@ -1,6 +1,7 @@
 import { getGame } from "@/libs/apis";
 import Link from "next/link";
 import GameCategoryCard from "../GameCategoryCard/GameCategoryCard";
+import CandleCare from "../CandleCare/CandleCare";
 
 const GameDetailsServer: any = async (props: { slug: string }) => {
   const { slug } = props;
@@ -22,8 +23,16 @@ const GameDetailsServer: any = async (props: { slug: string }) => {
         </h2>
       </div>
       <Link href={gameDetails.buyLink}>
-        <button className="text-white mr-4 hover:bg-yellow-300 hover:text-black bg-black py-2 px-4 mt-5">
+        <button className="text-white mr-4 hover:bg-gray-700 bg-black py-2 px-4 my-5">
           Buy Now
+        </button>
+      </Link>
+      <div className="my-10">
+        <CandleCare />
+      </div>
+      <Link href={gameDetails.buyLink}>
+        <button className="text-black mr-4 hover:bg-yellow-400 bg-yellow-300 py-2 px-4">
+          Candle Care
         </button>
       </Link>
     </>
