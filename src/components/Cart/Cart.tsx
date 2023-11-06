@@ -34,11 +34,16 @@ const Cart: FC = () => {
 
     if (!data) return;
 
-    toast.success(<h2>Proceeding to checkout.</h2>, {
-      style: {
-        borderRadius: "0px",
-      },
-    });
+    toast.success(
+      <div className="text-center mx-4">
+        <h2>Proceeding to checkout.</h2>
+      </div>,
+      {
+        style: {
+          borderRadius: "0px",
+        },
+      }
+    );
     localStorage.removeItem("cartItems");
 
     stripe.redirectToCheckout({ sessionId: data.id });

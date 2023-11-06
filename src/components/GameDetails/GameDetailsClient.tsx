@@ -50,7 +50,7 @@ const GameDetailsClient = (props: {
     if (!gameDetails) return;
     dispatch(addItemToCart({ ...gameDetails, quantity }));
     toast.success(
-      <div>
+      <div className="text-center mx-4">
         <p>
           {quantity} {gameDetails.name}(s)
         </p>
@@ -59,6 +59,10 @@ const GameDetailsClient = (props: {
       {
         style: {
           borderRadius: "0px",
+        },
+        iconTheme: {
+          primary: "#FDE047",
+          secondary: "#000000",
         },
       }
     );
