@@ -1,4 +1,3 @@
-import PagePlaceHolder from "@/components/PagePlaceHolder/PagePlaceHolder";
 import PageTitle from "@/components/PageTitle/PageTitle";
 
 const ReturnsPage = () => {
@@ -6,7 +5,7 @@ const ReturnsPage = () => {
     <div>
       <PageTitle title={"Returns"} />
       <div className="px-6 sm:px-12 md:px-20 lg:px-36 mx-auto text-black mb-10">
-        <p>
+        <p className="mb-10">
           All of our products are carefully inspected before they are shipped.
           We will replace or refund products damaged during shipment if
           photographic proof of damage is submitted to Candle by Sarah B within
